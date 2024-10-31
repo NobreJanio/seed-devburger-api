@@ -24,10 +24,11 @@ async function seed() {
     try {
       const { data: createdCategory } = await api.post('/categories', categoryForm, {
         headers: {
+          ...categoryForm.getHeaders(),
           'Content-Type': 'multipart/form-data',
         }
       });
-  
+
       console.log(createdCategory);
     } catch (err) {
       console.log(err);
@@ -51,7 +52,7 @@ async function seed() {
           'Content-Type': 'multipart/form-data',
         }
       });
-  
+
       console.log(createdProduct);
     } catch (err) {
       console.log(err);
